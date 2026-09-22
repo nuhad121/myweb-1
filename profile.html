@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09090b">
+
+<title>Abrar Hossain — Freelance Web Developer</title>
+<meta name="description" content="Abrar Hossain — freelance web developer building modern websites, AI-powered experiences and Telegram automation.">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #09090b;
+  --card: #121217;
+  --card-hover: #181820;
+  --line: #262630;
+  --line-light: #ffffff14;
+  --text: #f4f4f6;
+  --muted: #a1a1aa;
+  --accent: #8b5cf6;
+  --accent-light: #c4b5fd;
+  --accent2: #06b6d4;
+  --success: #34d399;
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Dynamic Glowing Ambient Cursor */
+#cursor-glow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(6, 182, 212, 0.05) 45%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+.wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* NAVIGATION */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(9, 9, 11, 0.75);
+  border-bottom: 1px solid var(--line-light);
+}
+
+nav {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.logo span {
+  color: var(--accent-light);
+}
+
+nav .links {
+  display: flex;
+  gap: 32px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.links a {
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.links a:hover {
+  color: #fff;
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+  border-radius: 2px;
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #09090b;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.25);
+  background: #f4f4f6;
+}
+
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  border-color: var(--line);
+  box-shadow: none;
+}
+
+.btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.btn.accent {
+  background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.btn.accent:hover {
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.5);
+}
+
+.btn-sm {
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+/* HERO SECTION */
+.hero {
+  padding: 100px 0 80px;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  background: rgba(17, 17, 22, 0.8);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 8px 16px;
+  color: var(--accent-light);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--success);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--success);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(52, 211, 153, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(42px, 5.5vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.grad {
+  background: linear-gradient(120deg, #ffffff 0%, #c4b5fd 40%, #67e8f9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lead {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 620px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 32px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  background: var(--card-hover);
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.profile-card {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(circle at 50% 50%, #1c1533 0%, #0e0e12 100%);
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  display: grid;
+  place-items: center;
+  font-size: 48px;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  color: #fff;
+  box-shadow: 0 0 50px rgba(139, 92, 246, 0.4);
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.profile-avatar::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px dashed rgba(196, 181, 253, 0.4);
+  animation: spin 25s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-name {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.profile-tag {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* SECTIONS */
+section {
+  padding: 100px 0;
+}
+
+.eyebrow {
+  color: var(--accent-light);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4vw, 48px);
+  letter-spacing: -0.03em;
+  margin-bottom: 48px;
+  font-weight: 700;
+}
+
+/* SERVICES */
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  color: var(--accent-light);
+  margin-bottom: 24px;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-family: var(--font-heading);
+}
+
+.service-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* WORK */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.work-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 240px;
+}
+
+.work-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.work-card h3 {
+  font-size: 22px;
+  font-family: var(--font-heading);
+  transition: color 0.2s ease;
+}
+
+.work-card:hover h3 {
+  color: var(--accent-light);
+}
+
+.work-card p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.work-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-light);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* STACK FILTER */
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn.active, .filter-btn:hover {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.stack-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pill {
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 12px 20px;
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.pill:hover {
+  border-color: var(--accent-light);
+  transform: translateY(-2px);
+  background: var(--card-hover);
+}
+
+/* ESTIMATOR WIDGET */
+.estimator-card {
+  background: linear-gradient(135deg, rgba(18, 18, 23, 0.9) 0%, rgba(24, 20, 38, 0.8) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  margin-bottom: 80px;
+}
+
+.estimator-header {
+  margin-bottom: 24px;
+}
+
+.estimator-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.estimator-option {
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.estimator-option.selected {
+  border-color: var(--accent);
+  background: rgba(139, 92, 246, 0.15);
+}
+
+.estimator-option h4 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.estimator-option p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.estimator-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.price-display {
+  font-size: 28px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--accent-light);
+}
+
+/* CONTACT */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-text p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.contact-card:hover {
+  border-color: var(--accent);
+  background: var(--card-hover);
+  transform: translateX(4px);
+}
+
+.contact-card-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+}
+
+.contact-icon {
+  font-size: 20px;
+}
+
+.arrow-icon {
+  color: var(--muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contact-card:hover .arrow-icon {
+  transform: translate(2px, -2px);
+  color: #fff;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--line-light);
+  padding: 32px 0;
+  color: var(--muted);
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* FLOATING TELEGRAM BUTTON */
+.telegram-chat {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+}
+
+.telegram-chat a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: #229ed9;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 10px 30px rgba(34, 158, 217, 0.4);
+  transition: all 0.25s ease;
+}
+
+.telegram-chat a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(34, 158, 217, 0.6);
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  max-width: 600px;
+  width: 100%;
+  padding: 32px;
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-card {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: var(--muted);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+
+.modal-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* MOBILE RESPONSIVE Drawer */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 150;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  font-size: 24px;
+  font-weight: 700;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu.active {
+  transform: translateY(0);
+}
+
+@media(max-width: 900px) {
+  .hero-grid, .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  nav .links {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  h1 {
+    font-size: 40px;
+  }
+  
+  section {
+    padding: 60px 0;
+  }
+  
+  footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+</style>
+
+<!-- CRISP LIVE CHAT SCRIPT -->
+<script type="text/javascript">
+  window.$crisp = [];
+  window.CRISP_WEBSITE_ID = "5f9557f2-b7d4-4b00-92c2-d211759433d5";
+  (function() {
+    d = document;
+    s = d.createElement("script");
+    s.src = "https://client.crisp.chat/l.js";
+    s.async = 1;
+    d.getElementsByTagName("head")[0].appendChild(s);
+  })();
+</script>
+</head>
+
+<body>
+
+<!-- Glow Cursor Spotlight -->
+<div id="cursor-glow"></div>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#work" onclick="toggleMenu()">Work</a>
+  <a href="#stack" onclick="toggleMenu()">Stack</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <button class="btn accent" onclick="toggleMenu(); openCrispChat();">Let's Talk ↗</button>
+</div>
+
+<!-- Header / Navigation -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#">ABRAR<span>.</span></a>
+      <div class="links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-sm accent" href="#contact">Let's talk ↗</a>
+        <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="badge">
+          <span class="dot"></span> Available for freelance projects
+        </div>
+        <h1>I build <span class="grad">websites</span> that feel fast, modern & alive.</h1>
+        <p class="lead">I'm Abrar Hossain, a freelance web developer focused on modern responsive websites, AI-powered features, and Telegram automation.</p>
+        <div class="actions">
+          <a class="btn" href="#contact">Start a project →</a>
+          <a class="btn ghost" href="#work">See my work</a>
+        </div>
+      </div>
+      <div>
+        <div class="card profile-card">
+          <div class="profile-avatar">AH</div>
+          <div class="profile-info">
+            <div class="profile-name">Abrar Hossain</div>
+            <div class="profile-tag">Full-Stack & Bot Developer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="eyebrow">What I do</div>
+    <h2>From idea → live product.</h2>
+    <div class="grid3">
+      <div class="card service-card">
+        <div>
+          <div class="service-icon">◈</div>
+          <h3>Web Development</h3>
+          <p>Responsive landing pages, business sites, portfolios, and custom high-performance web applications.</p>
+        </div>
+      </div>
+      <div class="card service-card">
+        <div>
+          <div class="service-icon">✦</div>
+          <h3>AI Integration</h3>
+          <p>AI chat systems, automated intelligent workflows, custom OpenAI/Gemini API integrations.</p>
+        </div>
+      </div>
+      <div class="card service-card">
+        <div>
+          <div class="service-icon">◉</div>
+          <h3>Telegram Automation</h3>
+          <p>Custom bots for support, notifications, crypto communities, e-commerce, and automated workflows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK SECTION -->
+  <section id="work">
+    <div class="eyebrow">Selected Direction</div>
+    <h2>What I can build.</h2>
+    <div class="work-grid">
+      <div class="card work-card" onclick="openModal('Business & Portfolio Sites', 'Clean, high-converting websites optimized for maximum speed and conversion. Built with React, Tailwind, or Vanilla JS depending on your performance targets.')">
+        <div>
+          <div class="work-card-header">
+            <h3>Business & Portfolio Sites</h3>
+            <span>↗</span>
+          </div>
+          <p>Clean, conversion-focused websites that look sharp on phones, tablets, and desktops.</p>
+        </div>
+        <div class="work-tags">
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">React</span>
+          <span class="tag">UI/UX</span>
+        </div>
+      </div>
+
+      <div class="card work-card" onclick="openModal('AI-Powered Web Apps', 'Dynamic web applications integrated with Gemini, OpenAI, or custom LLM endpoints for chat, text processing, or automated content generation.')">
+        <div>
+          <div class="work-card-header">
+            <h3>AI-Powered Web Apps</h3>
+            <span>↗</span>
+          </div>
+          <p>Useful AI features connected to a polished frontend and reliable cloud endpoints.</p>
+        </div>
+        <div class="work-tags">
+          <span class="tag">Node.js</span>
+          <span class="tag">OpenAI API</span>
+          <span class="tag">Webhooks</span>
+        </div>
+      </div>
+
+      <div class="card work-card" onclick="openModal('Automation Systems', 'Custom Python and Node.js bots capable of processing payment notifications, user subscriptions, support ticketing, and webhook triggers.')">
+        <div>
+          <div class="work-card-header">
+            <h3>Automation Systems</h3>
+            <span>↗</span>
+          </div>
+          <p>Telegram bots, webhooks, and simple dashboards that streamline repetitive operational work.</p>
+        </div>
+        <div class="work-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Telegram API</span>
+          <span class="tag">Cloudflare</span>
+        </div>
+      </div>
+
+      <div class="card work-card" onclick="openModal('Custom Builds', 'Unique briefs, SaaS MVPs, custom API integrations, or experimental web builds. Share your project requirements for a custom scope.')">
+        <div>
+          <div class="work-card-header">
+            <h3>Custom Builds</h3>
+            <span>↗</span>
+          </div>
+          <p>Have a complex or unique idea? Send the brief and I will translate it into a practical technical plan.</p>
+        </div>
+        <div class="work-tags">
+          <span class="tag">Custom Scope</span>
+          <span class="tag">Full-Stack</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE COST ESTIMATOR -->
+  <section id="estimator">
+    <div class="card estimator-card">
+      <div class="estimator-header">
+        <div class="eyebrow">Interactive Scope</div>
+        <h2>Project Estimate Calculator</h2>
+        <p style="color: var(--muted);">Select options to get an instant estimated project scope.</p>
+      </div>
+
+      <div class="estimator-grid">
+        <div class="estimator-option selected" onclick="selectOption(this, 300, 'Landing Page')">
+          <h4>Landing Page</h4>
+          <p>Single page, high conversion, responsive design.</p>
+        </div>
+        <div class="estimator-option" onclick="selectOption(this, 600, 'Full Business Site')">
+          <h4>Business Website</h4>
+          <p>Multi-page site with CMS or contact triggers.</p>
+        </div>
+        <div class="estimator-option" onclick="selectOption(this, 500, 'Telegram Bot')">
+          <h4>Telegram Bot</h4>
+          <p>Automation bot with database & admin controls.</p>
+        </div>
+        <div class="estimator-option" onclick="selectOption(this, 800, 'AI Web App')">
+          <h4>AI Web App</h4>
+          <p>Custom web app integrated with LLM APIs.</p>
+        </div>
+      </div>
+
+      <div class="estimator-result">
+        <div>
+          <span style="color: var(--muted); font-size: 14px;">Estimated Scope Starts At:</span>
+          <div class="price-display" id="estimatedPrice">$300 USD</div>
+        </div>
+        <button class="btn accent" onclick="openCrispWithEstimate()">Discuss This Scope ↗</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK SECTION -->
+  <section id="stack">
+    <div class="eyebrow">Toolkit</div>
+    <h2>Tools I work with.</h2>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterStack('all', this)">All Stack</button>
+      <button class="filter-btn" onclick="filterStack('frontend', this)">Frontend</button>
+      <button class="filter-btn" onclick="filterStack('backend', this)">Backend & Bots</button>
+      <button class="filter-btn" onclick="filterStack('cloud', this)">Cloud & APIs</button>
+    </div>
+
+    <div class="stack-grid" id="stackGrid">
+      <span class="pill" data-cat="frontend">⚡ HTML5 / CSS3 / JS</span>
+      <span class="pill" data-cat="frontend">⚛ React.js</span>
+      <span class="pill" data-cat="backend">🟢 Node.js</span>
+      <span class="pill" data-cat="backend">🐍 Python</span>
+      <span class="pill" data-cat="backend">✈ Telegram Bot API</span>
+      <span class="pill" data-cat="cloud">🤖 OpenAI / Gemini APIs</span>
+      <span class="pill" data-cat="backend">🔗 REST APIs & Webhooks</span>
+      <span class="pill" data-cat="cloud">☁ Cloudflare Workers</span>
+      <span class="pill" data-cat="frontend">📱 Responsive UI/UX</span>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="contact-text">
+        <div class="eyebrow">Let's build</div>
+        <h2>Have a project in mind?</h2>
+        <p>Tell me what you are building, what you need, and your target timeline. Click live chat to start an instant conversation right now.</p>
+      </div>
+
+      <div class="contact-links">
+        <div class="contact-card" onclick="openCrispChat()">
+          <div class="contact-card-info">
+            <span class="contact-icon">💬</span>
+            <span>Live Chat (Instant)</span>
+          </div>
+          <span class="arrow-icon">↗</span>
+        </div>
+
+        <a class="contact-card" href="https://t.me/crypton_k" target="_blank" rel="noopener">
+          <div class="contact-card-info">
+            <span class="contact-icon">✈</span>
+            <span>Telegram (@crypton_k)</span>
+          </div>
+          <span class="arrow-icon">↗</span>
+        </a>
+
+        <a class="contact-card" href="mailto:mdnuhad534@gmail.com">
+          <div class="contact-card-info">
+            <span class="contact-icon">✉</span>
+            <span>Email Me</span>
+          </div>
+          <span class="arrow-icon">↗</span>
+        </a>
+
+        <a class="contact-card" href="https://www.fiverr.com/" target="_blank" rel="noopener">
+          <div class="contact-card-info">
+            <span class="contact-icon">◆</span>
+            <span>Fiverr Profile</span>
+          </div>
+          <span class="arrow-icon">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<div class="wrap">
+  <footer>
+    <span>© 2026 Abrar Hossain. All rights reserved.</span>
+    <span>Built for speed & performance.</span>
+  </footer>
+</div>
+
+<!-- FLOATING TELEGRAM BUTTON -->
+<div class="telegram-chat">
+  <a href="https://t.me/crypton_k" target="_blank" rel="noopener">
+    ✈ Telegram
+  </a>
+</div>
+
+<!-- MODAL OVERLAY -->
+<div class="modal-overlay" id="projectModal" onclick="closeModal(event)">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal(null, true)">✕</button>
+    <h3 id="modalTitle" style="font-size: 24px; margin-bottom: 12px; font-family: var(--font-heading);"></h3>
+    <p id="modalBody" style="color: var(--muted); font-size: 16px; line-height: 1.6; margin-bottom: 24px;"></p>
+    <button class="btn accent" onclick="closeModal(null, true); openCrispChat();">Discuss This Project ↗</button>
+  </div>
+</div>
+
+<script>
+// Ambient Spotlight Glow Tracking
+const glow = document.getElementById('cursor-glow');
+document.addEventListener('mousemove', (e) => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
+});
+
+// Mobile Menu Drawer Toggle
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('active');
+}
+
+// Crisp Chat Trigger
+function openCrispChat() {
+  if (window.$crisp) {
+    window.$crisp.push(['do', 'chat:open']);
+  } else {
+    alert('Crisp Live Chat is initializing. Please try again in a second.');
+  }
+}
+
+// Interactive Estimator
+let currentService = 'Landing Page';
+let currentPrice = 300;
+
+function selectOption(el, price, name) {
+  document.querySelectorAll('.estimator-option').forEach(opt => opt.classList.remove('selected'));
+  el.classList.add('selected');
+  currentPrice = price;
+  currentService = name;
+  document.getElementById('estimatedPrice').innerText = `$${price} USD`;
+}
+
+function openCrispWithEstimate() {
+  if (window.$crisp) {
+    window.$crisp.push(['do', 'chat:open']);
+    window.$crisp.push(['do', 'message:send', ['text', `Hi Abrar, I would like to discuss a ${currentService} project (Estimated $${currentPrice} USD).`]]);
+  } else {
+    window.location.href = `mailto:mdnuhad534@gmail.com?subject=Project Inquiry - ${currentService}&body=Hi Abrar, I am interested in a ${currentService} (Estimated budget: $${currentPrice} USD).`;
+  }
+}
+
+// Tech Stack Filter
+function filterStack(category, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  
+  const items = document.querySelectorAll('#stackGrid .pill');
+  items.forEach(item => {
+    if (category === 'all' || item.getAttribute('data-cat') === category) {
+      item.style.display = 'flex';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// Modal View
+function openModal(title, text) {
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalBody').innerText = text;
+  document.getElementById('projectModal').classList.add('active');
+}
+
+function closeModal(e, force = false) {
+  if (force || e.target.id === 'projectModal') {
+    document.getElementById('projectModal').classList.remove('active');
+  }
+}
+</script>
+
+</body>
+</html>
